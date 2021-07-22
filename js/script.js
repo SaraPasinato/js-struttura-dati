@@ -10,6 +10,7 @@
  */
 //! inizializzo la variabile card
 var card = {
+    id: 1,
     name: "Bloodfire Colossus",
     cost: ['6', 'R', 'R'],
     cmc: 8,
@@ -20,9 +21,10 @@ var card = {
         name: "Apocalypse",
         rarity: "GoldenRod",
         collectionNr: 55,
+        totalCard: 143,
     },
     flavorText: {
-        quote: "t took all its strength to contain the fire within.",
+        quote: "took all its strength to contain the fire within.",
         author: "Greg Staples",
     },
     abilities: [
@@ -36,8 +38,7 @@ var card = {
         },
 
     ],
-    collectionNr: "55/148",
-    costistution: 6,
+    costitution: 6,
     strength: 6,
     borderColor: "#000",
     illustrator: {
@@ -47,7 +48,6 @@ var card = {
         },
         source: "img/pic.jpg",
     },
-
     background: {
         color: "red",
         source: "img/pic.jpg",
@@ -57,3 +57,67 @@ var card = {
 //? debug
 console.group("debug inline:");
 console.debug(card);
+
+//! stampo card in html la variabile card
+
+const cardItems = document.getElementById("card-items");
+const subType = card.subType ? `- ${card.subType}` : ``;
+const cite= card.flavorText.author ? `</br> - ${card.flavorText.author}`: ``;
+let abilitiesContent=`<em> Nessuna Abilità </em>`;
+if(card.abilities.length){
+    abilitiesContent=`<ul>`;
+    for (let i=0; i<card.abilities.length;i++){
+       const currentItem= card.abilities[i];
+       abilitiesContent+= `</br>`
+       abilitiesContent+= `<li> ${i+1}. <strong>Descrizione:</strong></br> ${currentItem.description}</li>`
+       abilitiesContent+= `<li>Costo di Lancio:</br>  ${currentItem.launchCost.join(", ")}</li>`
+    }
+    abilitiesContent+=`</ul>`;
+}
+
+
+
+
+
+let cardTemplate = `
+<ul class=\"card-info\">
+    <li><strong>Id:</strong> ${card.id}</li> 
+    <li><strong>Nome:</strong> ${card.name}</li>   
+    <li><strong>Costo</strong> d'attivazione: ${card.cost}</li> 
+    <li><strong>CmC:</strong> ${card.cmc}</li>     
+    <li><strong>Tipo carta:</strong> ${card.cardType} ${subType}</li>     
+    <li><strong> Espansione:</strong>
+        <ul>
+        <li>Ristampa: ${card.expansion.reprintId}</li>
+        <li>Nome: ${card.expansion.name}</li>
+        <li>Rarità: ${card.expansion.rarity}</li>
+        <li>Numero di Collezione: ${card.expansion.collectionNr}/${card.expansion.totalCard}</li>
+        </ul>
+    </li>
+    <li><strong>Testo di colore:</strong>
+       <ul>
+          <li>${card.flavorText.quote} ${cite}</li>
+       </ul>
+    </li>
+    <li> <strong> Abilità:</strong> ${abilitiesContent}</li>
+    <li> <strong>Costituzione:</strong> ${card.costitution}</li>
+    <li> <strong>Forza:</strong> ${card.strength}</li>
+    <li> <strong>Colore Bordo:</strong> ${card.borderColor}</li>
+    <li><strong> Illustratore:</strong>
+     <ul>
+        <li><em>Nome:</em> ${card.illustrator.author.name}</li>
+        <li><em>Link immagine:</em> ${card.illustrator.source}</li> 
+     </ul>
+   </li>
+    <li><strong> Background:</strong>
+     <ul>
+        <li><em>Colore Sfondo:</em> ${card.background.color}</li>
+        <li><em>Link Sfondo:</em> ${card.background.source}</li> 
+     </ul>
+   </li>
+</ul>
+`;
+
+
+
+cardItems.innerHTML = cardTemplate;

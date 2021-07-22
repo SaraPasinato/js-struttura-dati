@@ -5,8 +5,11 @@
 #card-items{
     min-height: 100%;
     max-width: 100%;
+
 }
 
 ul li{
   list-style-type: none;
+  font-size: small;
 }
+
