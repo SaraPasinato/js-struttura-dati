@@ -1,0 +1,12 @@
+.row{
+    min-height: 30vh;
+}
+
+#card-items{
+    min-height: 100%;
+    max-width: 100%;
+}
+
+ul li{
+  list-style-type: none;
+}
