@@ -9,7 +9,7 @@
    ? BONUS: provare a creare una funzione che stampi la carta in pagina.
  */
 //! inizializzo la variabile card
-var card = {
+const card = {
     id: 1,
     name: "Bloodfire Colossus",
     cost: ['6', 'R', 'R'],
