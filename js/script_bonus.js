@@ -73,6 +73,24 @@ renderCard(card, cardItems);
 
 /******* FUNCTION UTILS ************/
 
+function renderCard(obj, element){
+// get property obj
+  let properties= Object.keys(obj);
+  let cardTemplate=`<ul class="card-info">`
+  console.log(properties);
+  //if exists property
+  if(properties.length){
+      
+  }
+
+  cardTemplate+=`</ul>`;
+
+  element.innerHTML=cardTemplate;
+}
+
+
+
+/* 
 function renderCard(obj, element) {
     //? custruction string subType
     const subType = obj.subType ? `- ${obj.subType}` : ``;
@@ -92,7 +110,6 @@ function renderCard(obj, element) {
     }
     // ! string tamplate text html
     let cardTemplate = `
-    <img id="colossus" src="./img/pics.png" alt="">
    <ul class="card-info">
         <li><strong>Id:</strong> ${obj.id}</li> 
         <li><strong>Nome:</strong> ${obj.name}</li>   
@@ -132,4 +149,4 @@ function renderCard(obj, element) {
 
     //? puts string in html element
     element.innerHTML = cardTemplate;
-}
+} */
