@@ -85,7 +85,7 @@ if(card.abilities.length){
 
 // ! string tamplate text html
 let cardTemplate = `
-<ul class=\"card-info\">
+<ul class="card-info">
     <li><strong>Id:</strong> ${card.id}</li> 
     <li><strong>Nome:</strong> ${card.name}</li>   
     <li><strong>Costo</strong> d'attivazione: ${card.cost}</li> 
