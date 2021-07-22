@@ -80,11 +80,16 @@ function renderCard(obj, element){
   console.log(properties);
   //if exists property
   if(properties.length){
-      
+      //iteration on propreties elements
+    for(let i=0; i<properties.length; i++){
+        let currentProp= properties[i];
+        cardTemplate+= `<li> ${currentProp}: ${obj[currentProp]}</li>`
+    }
   }
 
   cardTemplate+=`</ul>`;
 
+  console.log(cardTemplate);
   element.innerHTML=cardTemplate;
 }
 
