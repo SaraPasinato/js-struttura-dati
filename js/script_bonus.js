@@ -12,7 +12,7 @@
 const card = {
     id: 1,
     name: "Bloodfire Colossus",
-    cost: ['6', 'R', 'R'],
+    // cost: ['6', 'R', 'R'],
     cmc: 8,
     cardType: "creature",
     subType: "giant",
@@ -82,8 +82,26 @@ function renderCard(obj, element){
   if(properties.length){
       //iteration on propreties elements
     for(let i=0; i<properties.length; i++){
+        //get property 1level
         let currentProp= properties[i];
-        cardTemplate+= `<li> ${currentProp}: ${obj[currentProp]}</li>`
+      
+        console.log(currentProp, typeof obj[currentProp]);
+       
+      if (typeof obj[currentProp] === 'object' ){
+        cardTemplate+= `<li> ${currentProp}:</li>`; 
+            //get property 2level
+          let tmpObj=obj[currentProp];
+           let subPropeties=Object.keys(tmpObj);
+           console.log("sub:"+subPropeties + "legth: "+subPropeties.length);
+            for(let j=0; j<subPropeties.length; j++){
+                console.log(subPropeties[j] + ": " + obj[currentProp.subPropeties]);
+                cardTemplate+=`<li> ${subPropeties[j]}:${obj[currentProp[subPropeties[j]]]}</li> </br>`;
+            } 
+         }else{
+            cardTemplate+= `<li> ${currentProp}: ${obj[currentProp]}</li>`; 
+         }
+        
+       
     }
   }
 
