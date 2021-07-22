@@ -58,11 +58,18 @@ var card = {
 console.group("debug inline:");
 console.debug(card);
 
-//! stampo card in html la variabile card
+
 
 const cardItems = document.getElementById("card-items");
+
+
+//! stampo card in html la variabile card
+
+//? custruction string subType
 const subType = card.subType ? `- ${card.subType}` : ``;
+//? custruction string cite
 const cite= card.flavorText.author ? `</br> - ${card.flavorText.author}`: ``;
+//? custruction descriptrions string 
 let abilitiesContent=`<em> Nessuna Abilità </em>`;
 if(card.abilities.length){
     abilitiesContent=`<ul>`;
@@ -76,9 +83,7 @@ if(card.abilities.length){
 }
 
 
-
-
-
+// ! string tamplate text html
 let cardTemplate = `
 <ul class=\"card-info\">
     <li><strong>Id:</strong> ${card.id}</li> 
@@ -119,5 +124,5 @@ let cardTemplate = `
 `;
 
 
-
+//? puts string in html element
 cardItems.innerHTML = cardTemplate;
