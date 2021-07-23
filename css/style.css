@@ -5,16 +5,20 @@
 #card-items{
     min-height: 100%;
     max-width: 100%;
+    display: flex;
+    flex-wrap:nowrap;
+    
 
 }
 #card-items .card-info{
+  min-width: 30%;
   border: 4px solid #000;
   border-radius: 20px;
   font-weight: lighter;
   background-color: #dc3545;
   padding:10px;
   display: block;
-  
+  margin: 0 5px;
 
 }
 

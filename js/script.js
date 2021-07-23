@@ -1,7 +1,7 @@
 /* 
   Completiamo il nostro archivio delle carte aggiungendo i seguenti step:
 * 1. Creiamo un mazzo di carte  
- 2. Stampiamo tutte  le carte su schermo
+* 2. Stampiamo tutte  le carte su schermo
  3. Aggiungiamo un piccolo form in HTML
  4. Ragioniamo pian pianino sulla logica dei filtri
 
