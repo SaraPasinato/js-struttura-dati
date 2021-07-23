@@ -57,6 +57,95 @@ const card = {
         source: "img/pic.jpg",
     },
 };
+//! inizializzo l'array deck
+let InitialDeck = [card,
+    {
+        id: 2,
+        name: "Bear Umbra",
+        cost: ['2', 'G', 'G'],
+        cmc: 4,
+        cardType: "enchantment",
+        subType: "aura",
+        expansion: {
+            reprintId: 1,
+            name: "Commander2018",
+            rarity: "GoldenRod",
+            collectionNr: 131,
+            totalCard: 307,
+        },
+        flavorText: {
+            quote: "Enchant creature",
+            author: "Howard Lyon",
+        },
+        abilities: [
+            {
+                launchCost: ['G', 'T'],
+                description: "Enchanted creature gets +2/+2 and has Whenever this creature attacks, untap all lands you control.",
+            },
+            {
+                launchCost: ['G', 'G', 'R'],
+                description: "Totem armor (If enchanted creature would be destroyed, instead remove all damage from it and destroy this Aura.)",
+            },
+
+        ],
+        costitution: 2,
+        strength: 2,
+        borderColor: "#000",
+        illustrator: {
+            author: {
+                id: 2,
+                name: "Howard Lyon",
+            },
+            source: "img/pic3.jpg",
+        },
+        background: {
+            color: "green",
+            source: "img/pic3.jpg",
+        },
+    },
+    {
+        id: 1,
+        name: "Calamity Bearer",
+        cost: ['2', 'R', 'R'],
+        cmc: 4,
+        cardType: "creature",
+        subType: "giant Berserker",
+        expansion: {
+            reprintId: 10,
+            name: "Kaldheim",
+            rarity: "GoldenRod",
+            collectionNr: 125,
+            totalCard: 285,
+        },
+        flavorText: {
+            quote: "He'd ignite the World Tree itself if he could.",
+            author: "Simon Dominique",
+        },
+        abilities: [
+            {
+                launchCost: ['P', 'T'],
+                description: " If a Giant source you control would deal damage to a permanent or player, it deals double that damage to that permanent or player instead.",
+            },
+        ],
+        costitution: 3,
+        strength: 4,
+        borderColor: "#000",
+        illustrator: {
+            author: {
+                id: 3,
+                name: "Simon Dominique",
+            },
+            source: "img/pic2.jpg",
+        },
+        background: {
+            color: "red",
+            source: "img/pic2.jpg",
+        },
+    },
+];
+console.log(InitialDeck);
+
+
 
 //? debug
 console.group("debug inline:");
@@ -71,25 +160,25 @@ const cardItems = document.getElementById("card-items");
  * @param {Object} obj  card
  * @returns {string} cardTamplate 
  */
-const renderCard = (obj) =>{
- //? custruction string subType
- const subType = obj.subType ? `- ${obj.subType}` : ``;
- //? custruction string cite
- const cite = obj.flavorText.author ? `</br> - ${obj.flavorText.author}` : ``;
- //? custruction descriptrions string 
- let abilitiesContent = `<em> Nessuna Abilità </em>`;
- if (obj.abilities.length) {
-     abilitiesContent = `<ul>`;
-     for (let i = 0; i < obj.abilities.length; i++) {
-         const currentItem = obj.abilities[i];
-         abilitiesContent += `</br>`
-         abilitiesContent += `<li> ${i + 1}. <strong>Descrizione:</strong></br> ${currentItem.description}</li>`
-         abilitiesContent += `<li>Costo di Lancio:</br>  ${currentItem.launchCost.join(", ")}</li>`
-     }
-     abilitiesContent += `</ul>`;
- }
- // ! string tamplate text html
- let cardTemplate = `
+const renderCard = (obj) => {
+    //? custruction string subType
+    const subType = obj.subType ? `- ${obj.subType}` : ``;
+    //? custruction string cite
+    const cite = obj.flavorText.author ? `</br> - ${obj.flavorText.author}` : ``;
+    //? custruction descriptrions string 
+    let abilitiesContent = `<em> Nessuna Abilità </em>`;
+    if (obj.abilities.length) {
+        abilitiesContent = `<ul>`;
+        for (let i = 0; i < obj.abilities.length; i++) {
+            const currentItem = obj.abilities[i];
+            abilitiesContent += `</br>`
+            abilitiesContent += `<li> ${i + 1}. <strong>Descrizione:</strong></br> ${currentItem.description}</li>`
+            abilitiesContent += `<li>Costo di Lancio:</br>  ${currentItem.launchCost.join(", ")}</li>`
+        }
+        abilitiesContent += `</ul>`;
+    }
+    // ! string tamplate text html
+    let cardTemplate = `
 <ul class="card-info">
      <li><strong>Id:</strong> ${obj.id}</li> 
      <li><strong>Nome:</strong> ${obj.name}</li>   
@@ -127,13 +216,13 @@ const renderCard = (obj) =>{
  </li>
 </ul>`;
 
- //? return strin
-return cardTemplate;
+    //? return strin
+    return cardTemplate;
 }
 
-let tamplate=renderCard(card);
-cardItems.innerHTML=tamplate;
- 
+let tamplate = renderCard(card);
+cardItems.innerHTML = tamplate;
+
 /**
  * Ex function renderCard
  */
@@ -142,7 +231,7 @@ cardItems.innerHTML=tamplate;
     const subType = obj.subType ? `- ${obj.subType}` : ``;
     //? custruction string cite
     const cite = obj.flavorText.author ? `</br> - ${obj.flavorText.author}` : ``;
-    //? custruction descriptrions string 
+    //? custruction descriptrions string
     let abilitiesContent = `<em> Nessuna Abilità </em>`;
     if (obj.abilities.length) {
         abilitiesContent = `<ul>`;
@@ -157,11 +246,11 @@ cardItems.innerHTML=tamplate;
     // ! string tamplate text html
     let cardTemplate = `
    <ul class="card-info">
-        <li><strong>Id:</strong> ${obj.id}</li> 
-        <li><strong>Nome:</strong> ${obj.name}</li>   
-        <li><strong>Costo</strong> d'attivazione: ${obj.cost}</li> 
-        <li><strong>CmC:</strong> ${obj.cmc}</li>     
-        <li><strong>Tipo carta:</strong> ${obj.cardType} ${subType}</li>     
+        <li><strong>Id:</strong> ${obj.id}</li>
+        <li><strong>Nome:</strong> ${obj.name}</li>
+        <li><strong>Costo</strong> d'attivazione: ${obj.cost}</li>
+        <li><strong>CmC:</strong> ${obj.cmc}</li>
+        <li><strong>Tipo carta:</strong> ${obj.cardType} ${subType}</li>
         <li><strong> Espansione:</strong>
             <ul>
             <li>Ristampa: ${obj.expansion.reprintId}</li>
@@ -182,13 +271,13 @@ cardItems.innerHTML=tamplate;
         <li><strong> Illustratore:</strong>
         <ul>
             <li><em>Nome:</em> ${obj.illustrator.author.name}</li>
-            <li><em>Link immagine:</em> ${obj.illustrator.source}</li> 
+            <li><em>Link immagine:</em> ${obj.illustrator.source}</li>
         </ul>
     </li>
         <li><strong> Background:</strong>
         <ul>
             <li><em>Colore Sfondo:</em> ${obj.background.color}</li>
-            <li><em>Link Sfondo:</em> ${obj.background.source}</li> 
+            <li><em>Link Sfondo:</em> ${obj.background.source}</li>
         </ul>
     </li>
    </ul>`;
@@ -199,7 +288,7 @@ cardItems.innerHTML=tamplate;
 
 
 //!STUB: function  renderCard general
-/* 
+/*
 function renderCard(obj, element){
     // get property obj
       let properties= Object.keys(obj);
@@ -211,11 +300,11 @@ function renderCard(obj, element){
         for(let i=0; i<properties.length; i++){
             //get property 1level
             let currentProp= properties[i];
-          
+
             console.log(currentProp, typeof obj[currentProp]);
-           
+
           if (typeof obj[currentProp] === 'object' ){
-            cardTemplate+= `<li> ${currentProp}:</li>`; 
+            cardTemplate+= `<li> ${currentProp}:</li>`;
                 //get property 2level
               let tmpObj=obj[currentProp];
                let subPropeties=Object.keys(tmpObj);
@@ -224,20 +313,19 @@ function renderCard(obj, element){
                 for(let j=0; j<subPropeties.length; j++){
                     console.log(subPropeties[j] + ": " + obj[currentProp.subPropeties]);
                     cardTemplate+=`<li><em> ${subPropeties[j]}</em>: ${tmpObj[subPropeties[j]]}</li>`;
-                } 
+                }
                 cardTemplate+=`</ul>`;
              }else{
-                cardTemplate+= `<li> ${currentProp}: ${obj[currentProp]}</li>`; 
+                cardTemplate+= `<li> ${currentProp}: ${obj[currentProp]}</li>`;
              }
-            
-           
+
+
         }
       }
-    
+
       cardTemplate+=`</ul>`;
-    
+
       console.log(cardTemplate);
       element.innerHTML=cardTemplate;
     } */
-    
-    
+
