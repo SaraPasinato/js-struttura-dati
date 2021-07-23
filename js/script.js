@@ -9,9 +9,9 @@
  * - Filtrare prima le proprietà con valori semplici (stringhe o numeri)
  * - Filtrare le proprietà il cui valore è un array di stringhe
  *BONUS:
-*- Far sì che se filtro una proprietà con valore stringa, riesca a mostrare la carta anche se non scrivo il suo testo interamente
-   (es: cerco il nome digitando "creat" e riesco a trovare nei risultati le carte che hanno nel nome "creatura")
-  - Filtrare anche altre proprietà i cui valori sono più complessi, se ne avete (oggetti, array di oggetti)
+ *  - Far sì che se filtro una proprietà con valore stringa, riesca a mostrare la carta anche se non scrivo il suo testo interamente
+ *  (es: cerco il nome digitando "creat" e riesco a trovare nei risultati le carte che hanno nel nome "creatura")
+  - Filtrare anche altre proprietà i cui valori sono più complessi, se ne avete (oggetti, array di oggetti) //TODO
  */
 //! inizializzo la variabile card
 const card = {
