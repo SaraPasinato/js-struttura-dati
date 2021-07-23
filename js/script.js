@@ -380,6 +380,7 @@ function renderCard(obj, element){
                 for(let j=0; j<subPropeties.length; j++){
                     console.log(subPropeties[j] + ": " + obj[currentProp.subPropeties]);
                     cardTemplate+=`<li><em> ${subPropeties[j]}</em>: ${tmpObj[subPropeties[j]]}</li>`;
+                    ? posso richiamare ricorsivamente
                 }
                 cardTemplate+=`</ul>`;
              }else{
