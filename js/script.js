@@ -57,6 +57,10 @@ const card = {
         source: "img/pic.jpg",
     },
 };
+//? debug
+console.group("debug card:");
+console.debug(card);
+console.groupEnd();
 //! inizializzo l'array deck
 let InitialDeck = [card,
     {
@@ -143,13 +147,13 @@ let InitialDeck = [card,
         },
     },
 ];
-console.log(InitialDeck);
-
-
-
 //? debug
-console.group("debug inline:");
-console.debug(card);
+console.group("debug deck:");
+console.debug(InitialDeck);
+
+
+
+
 
 //?element html vars
 const cardItems = document.getElementById("card-items");
