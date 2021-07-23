@@ -1,9 +1,9 @@
 /* 
- 1. Completiamo il nostro archivio delle carte aggiungendo i seguenti step:
- 2. Creiamo un mazzo di carte
- 3. Stampiamo tutte  le carte su schermo
- 4. Aggiungiamo un piccolo form in HTML
- 5. Ragioniamo pian pianino sulla logica dei filtri
+  Completiamo il nostro archivio delle carte aggiungendo i seguenti step:
+* 1. Creiamo un mazzo di carte  
+ 2. Stampiamo tutte  le carte su schermo
+ 3. Aggiungiamo un piccolo form in HTML
+ 4. Ragioniamo pian pianino sulla logica dei filtri
 
  ?PERTANTO IL MINIMO RICHIESTO E':
   - Filtrare prima le proprietà con valori semplici (stringhe o numeri)
@@ -158,7 +158,7 @@ console.debug(InitialDeck);
 //?element html vars
 const cardItems = document.getElementById("card-items");
 
-//! stampo card in html la variabile card
+//! write card into html  
 /** function arrow to render Card  and inject in html element 
  * 
  * @param {Object} obj  card
@@ -226,6 +226,7 @@ const renderCard = (obj) => {
 
 let tamplate = renderCard(card);
 cardItems.innerHTML = tamplate;
+//! wirte  cards in deck  into html 
 
 /**
  * Ex function renderCard

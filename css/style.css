@@ -7,15 +7,20 @@
     max-width: 100%;
 
 }
+#card-items .card-info{
+  border: 4px solid #000;
+  border-radius: 20px;
+  font-weight: lighter;
+  background-color: #dc3545;
+  padding:10px;
+
+}
+
 
 ul li{
   list-style-type: none;
   font-size: small;
 }
 
-#colossus {
-  display: block;
-  width: 100%;
-  height: 50%;
-  margin: 0 auto;
-}
+
+
