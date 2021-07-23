@@ -62,7 +62,7 @@ console.group("debug card:");
 console.debug(card);
 console.groupEnd();
 //! inizializzo l'array deck
-let InitialDeck = [card,
+let initialDeck = [card,
     {
         id: 2,
         name: "Bear Umbra",
@@ -222,6 +222,10 @@ const renderCard = (obj) => {
 
     //? return strin
     return cardTemplate;
+}
+
+for(let i=0; i<initialDeck.length;i++){
+    const currentCard= inin
 }
 
 let tamplate = renderCard(card);
