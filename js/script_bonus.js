@@ -95,7 +95,7 @@ function renderCard(obj, element){
            console.log("sub:"+subPropeties + "legth: "+subPropeties.length);
             for(let j=0; j<subPropeties.length; j++){
                 console.log(subPropeties[j] + ": " + obj[currentProp.subPropeties]);
-                cardTemplate+=`<li> ${subPropeties[j]}:${obj[currentProp[subPropeties[j]]]}</li> </br>`;
+                cardTemplate+=`<li> ${subPropeties[j]}: ${obj[currentProp][subPropeties[j]]}</li> </br>`;
             } 
          }else{
             cardTemplate+= `<li> ${currentProp}: ${obj[currentProp]}</li>`; 
