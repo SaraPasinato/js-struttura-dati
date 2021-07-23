@@ -311,8 +311,24 @@ btn.addEventListener('click',()=>{
     const filteredDeck=[];
     for(let i =0;i<initialDeck.length;i++){
         let currentCard= initialDeck[i];
-        if(currentCard[selectValue]== inputValue){
-            filteredDeck.push(currentCard);
+       
+    
+        switch(selectValue){
+            case "id":
+            case "cmc":
+            case "costitution":
+            case "strength":
+                if(currentCard[selectValue]==inputValue){
+                    filteredDeck.push(currentCard);
+                }
+                break;
+            case "name":
+            case "cardType":
+            case "subType":
+                if(currentCard[selectValue].includes(inputValue)){
+                    filteredDeck.push(currentCard);
+                }
+                break;
         }
     }
 
