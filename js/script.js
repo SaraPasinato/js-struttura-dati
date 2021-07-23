@@ -203,7 +203,7 @@ console.debug(initialDeck);
 //?element html vars
 const cardItems = document.getElementById("card-items");
 
-//! write card into html  
+//? function that renders card into html  
 /** function arrow to render Card  and inject in html element 
  * 
  * @param {Object} obj  card
@@ -228,47 +228,48 @@ const renderCard = (card) => {
     }
     // ! string tamplate text html
     let cardTemplate = `
-<ul class="card-info">
-     <li><strong>Id:</strong> ${card.id}</li> 
-     <li><strong>Nome:</strong> ${card.name}</li>   
-     <li><strong>Costo</strong> d'attivazione: ${card.cost}</li> 
-     <li><strong>CmC:</strong> ${card.cmc}</li>     
-     <li><strong>Tipo carta:</strong> ${card.cardType} ${subType}</li>     
-     <li><strong> Espansione:</strong>
-         <ul>
-         <li>Ristampa: ${card.expansion.reprintId}</li>
-         <li>Nome: ${card.expansion.name}</li>
-         <li>Rarità: ${card.expansion.rarity}</li>
-         <li>Numero di Collezione: ${card.expansion.collectionNr}/${card.expansion.totalCard}</li>
-         </ul>
-     </li>
-     <li><strong>Testo di colore:</strong>
-     <ul>
-         <li>${card.flavorText.quote} ${cite}</li>
-     </ul>
-     </li>
-     <li> <strong> Abilità:</strong> ${abilitiesContent}</li>
-     <li> <strong>Costituzione:</strong> ${card.costitution}</li>
-     <li> <strong>Forza:</strong> ${card.strength}</li>
-     <li> <strong>Colore Bordo:</strong> ${card.borderColor}</li>
-     <li><strong> Illustratore:</strong>
-     <ul>
-         <li><em>Nome:</em> ${card.illustrator.author.name}</li>
-         <li><em>Link immagine:</em> ${card.illustrator.source}</li> 
-     </ul>
- </li>
-     <li><strong> Background:</strong>
-     <ul>
-         <li><em>Colore Sfondo:</em> ${card.background.color}</li>
-         <li><em>Link Sfondo:</em> ${card.background.source}</li> 
-     </ul>
- </li>
-</ul>`;
-
+    <ul class="card-info">
+    <li><strong>Id:</strong> ${card.id}</li> 
+    <li><strong>Nome:</strong> ${card.name}</li>   
+    <li><strong>Costo</strong> d'attivazione: ${card.cost}</li> 
+    <li><strong>CmC:</strong> ${card.cmc}</li>     
+    <li><strong>Tipo carta:</strong> ${card.cardType} ${subType}</li>     
+    <li><strong> Espansione:</strong>
+    <ul>
+    <li>Ristampa: ${card.expansion.reprintId}</li>
+    <li>Nome: ${card.expansion.name}</li>
+    <li>Rarità: ${card.expansion.rarity}</li>
+    <li>Numero di Collezione: ${card.expansion.collectionNr}/${card.expansion.totalCard}</li>
+    </ul>
+    </li>
+    <li><strong>Testo di colore:</strong>
+    <ul>
+    <li>${card.flavorText.quote} ${cite}</li>
+    </ul>
+    </li>
+    <li> <strong> Abilità:</strong> ${abilitiesContent}</li>
+    <li> <strong>Costituzione:</strong> ${card.costitution}</li>
+    <li> <strong>Forza:</strong> ${card.strength}</li>
+    <li> <strong>Colore Bordo:</strong> ${card.borderColor}</li>
+    <li><strong> Illustratore:</strong>
+    <ul>
+    <li><em>Nome:</em> ${card.illustrator.author.name}</li>
+    <li><em>Link immagine:</em> ${card.illustrator.source}</li> 
+    </ul>
+    </li>
+    <li><strong> Background:</strong>
+    <ul>
+    <li><em>Colore Sfondo:</em> ${card.background.color}</li>
+    <li><em>Link Sfondo:</em> ${card.background.source}</li> 
+    </ul>
+    </li>
+    </ul>`;
+    
     //? return strin
     return cardTemplate;
 }
-//! write deck into html
+
+//? function that write deck into html  
 /**
  * 
  * @param {ObjectArray} deck  of cards
@@ -282,7 +283,7 @@ let renderDeck = (deck, targetElement) => {
     console.log(deckTamplate);
     targetElement.innerHTML += deckTamplate;
 }
-
+//! exec renderdeck 
 renderDeck(initialDeck, cardItems);
 /**
  * Ex function renderCard
