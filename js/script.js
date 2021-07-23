@@ -3,10 +3,10 @@
 * 1. Creiamo un mazzo di carte  
 * 2. Stampiamo tutte  le carte su schermo
 * 3. Aggiungiamo un piccolo form in HTML
- 4. Ragioniamo pian pianino sulla logica dei filtri
+* 4. Ragioniamo pian pianino sulla logica dei filtri
 
  ?PERTANTO IL MINIMO RICHIESTO E':
-  - Filtrare prima le proprietà con valori semplici (stringhe o numeri)
+ * - Filtrare prima le proprietà con valori semplici (stringhe o numeri)
   - Filtrare le proprietà il cui valore è un array di stringhe
  *BONUS:
   - Far sì che se filtro una proprietà con valore stringa, riesca a mostrare la carta anche se non scrivo il suo testo interamente (es: cerco il nome digitando "creat" e riesco a trovare nei risultati le carte che hanno nel nome "creatura")
@@ -153,7 +153,7 @@ let initialDeck = [
         },
     },
     {
-        id: 1,
+        id: 3,
         name: "Calamity Bearer",
         cost: ['2', 'R', 'R'],
         cmc: 4,
@@ -282,7 +282,7 @@ let renderDeck = (deck, targetElement) => {
     for (let i = 0; i < deck.length; i++) {
         deckTamplate += renderCard(deck[i]);
     }
-    targetElement.innerHTML += deckTamplate;
+    targetElement.innerHTML = deckTamplate;
 }
 //! exec renderdeck 
 renderDeck(initialDeck, cardItems);
@@ -299,6 +299,25 @@ selectField.addEventListener('change',()=>{
     }
 });
 
+btn.addEventListener('click',()=>{
+    
+    const selectValue=selectField.value;
+    const inputValue=inputField.value;
+
+    if(selectValue ==='all'){
+        renderDeck(initialDeck,cardItems);
+        return;
+    }
+    const filteredDeck=[];
+    for(let i =0;i<initialDeck.length;i++){
+        let currentCard= initialDeck[i];
+        if(currentCard[selectValue]== inputValue){
+            filteredDeck.push(currentCard);
+        }
+    }
+
+    renderDeck(filteredDeck,cardItems);
+});
 
 //!STUB: function  renderCard general
 /*
