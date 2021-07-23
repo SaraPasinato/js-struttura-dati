@@ -1,12 +1,16 @@
 /* 
-   !Proviamo a ripetere quanto visto in classe, creando la 
-   struttura che riteniamo più adeguata per rappresentare una carta di Magic.
-    Una volta definita la struttura,
-    stampiamo sulla pagina HTML tutte le informazioni relative
-    alla carta stessa, senza particolare attenzione a dettagli 
-    grafici (va bene una lista coi tag UL e LI)
+ 1. Completiamo il nostro archivio delle carte aggiungendo i seguenti step:
+ 2. Creiamo un mazzo di carte
+ 3. Stampiamo tutte  le carte su schermo
+ 4. Aggiungiamo un piccolo form in HTML
+ 5. Ragioniamo pian pianino sulla logica dei filtri
 
-   ? BONUS: provare a creare una funzione che stampi la carta in pagina.
+ ?PERTANTO IL MINIMO RICHIESTO E':
+  - Filtrare prima le proprietà con valori semplici (stringhe o numeri)
+  - Filtrare le proprietà il cui valore è un array di stringhe
+ *BONUS:
+  - Far sì che se filtro una proprietà con valore stringa, riesca a mostrare la carta anche se non scrivo il suo testo interamente (es: cerco il nome digitando "creat" e riesco a trovare nei risultati le carte che hanno nel nome "creatura")
+  - Filtrare anche altre proprietà i cui valori sono più complessi, se ne avete (oggetti, array di oggetti)
  */
 //! inizializzo la variabile card
 const card = {
@@ -62,8 +66,6 @@ console.debug(card);
 const cardItems = document.getElementById("card-items");
 
 //! stampo card in html la variabile card
-
-
 /** function arrow to render Card  and inject in html element 
  * 
  * @param {Object} obj  card
