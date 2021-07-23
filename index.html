@@ -14,12 +14,12 @@
 <body class="mt-4">
     <section id="form-section" class="container-sm">
         <div class="row justify-content-center text-center">
-            <div class="col-12 col-md-4">
-                <input type="search" class="form-control form-control-light" placeholder="Search...">
+            <div class="col-12 col-md-1">
+                <button type="btn-search" class="btn  btn-primary">Cerca</button>
             </div>
             <div class="col-12 col-md-4">
-                <select class="form-select ">
-                    <option value="all" selected>Tutti</option>
+                <select id="filter" class="form-select ">
+                    <option selected value="all" >Tutti</option>
                     <option value="id">Id</option>
                     <option value="name">Nome</option>
                     <option value="cost">Costo d'attivazione</option>
@@ -30,9 +30,11 @@
                     <option value="strength">Forza</option>
                 </select>
             </div>
-                <div class="col-12 col-md-1">
-                    <button type="btnSearch" class="btn  btn-primary">Cerca</button>
-                </div>
+            <div class="col-12 col-md-4">
+                <input id="search" type="search" class="form-control form-control-light d-none" placeholder="Search...">
+            </div>
+          
+             
            
         </div>
     </section>

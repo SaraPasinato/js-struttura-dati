@@ -2,7 +2,7 @@
   Completiamo il nostro archivio delle carte aggiungendo i seguenti step:
 * 1. Creiamo un mazzo di carte  
 * 2. Stampiamo tutte  le carte su schermo
- 3. Aggiungiamo un piccolo form in HTML
+* 3. Aggiungiamo un piccolo form in HTML
  4. Ragioniamo pian pianino sulla logica dei filtri
 
  ?PERTANTO IL MINIMO RICHIESTO E':
@@ -195,13 +195,15 @@ let initialDeck = [
 //? debug
 console.group("debug deck:");
 console.debug(initialDeck);
-
-
-
-
+console.groupEnd();
 
 //?element html vars
 const cardItems = document.getElementById("card-items");
+const inputField = document.getElementById("search");
+const selectField = document.getElementById("filter");
+const btn = document.getElementById("btn-search");
+
+
 
 //? function that renders card into html  
 /** function arrow to render Card  and inject in html element 
@@ -280,73 +282,22 @@ let renderDeck = (deck, targetElement) => {
     for (let i = 0; i < deck.length; i++) {
         deckTamplate += renderCard(deck[i]);
     }
-    console.log(deckTamplate);
     targetElement.innerHTML += deckTamplate;
 }
 //! exec renderdeck 
 renderDeck(initialDeck, cardItems);
-/**
- * Ex function renderCard
- */
-/*function renderCard(obj) {
-    //? custruction string subType
-    const subType = obj.subType ? `- ${obj.subType}` : ``;
-    //? custruction string cite
-    const cite = obj.flavorText.author ? `</br> - ${obj.flavorText.author}` : ``;
-    //? custruction descriptrions string
-    let abilitiesContent = `<em> Nessuna Abilità </em>`;
-    if (obj.abilities.length) {
-        abilitiesContent = `<ul>`;
-        for (let i = 0; i < obj.abilities.length; i++) {
-            const currentItem = obj.abilities[i];
-            abilitiesContent += `</br>`
-            abilitiesContent += `<li> ${i + 1}. <strong>Descrizione:</strong></br> ${currentItem.description}</li>`
-            abilitiesContent += `<li>Costo di Lancio:</br>  ${currentItem.launchCost.join(", ")}</li>`
-        }
-        abilitiesContent += `</ul>`;
-    }
-    // ! string tamplate text html
-    let cardTemplate = `
-   <ul class="card-info">
-        <li><strong>Id:</strong> ${obj.id}</li>
-        <li><strong>Nome:</strong> ${obj.name}</li>
-        <li><strong>Costo</strong> d'attivazione: ${obj.cost}</li>
-        <li><strong>CmC:</strong> ${obj.cmc}</li>
-        <li><strong>Tipo carta:</strong> ${obj.cardType} ${subType}</li>
-        <li><strong> Espansione:</strong>
-            <ul>
-            <li>Ristampa: ${obj.expansion.reprintId}</li>
-            <li>Nome: ${obj.expansion.name}</li>
-            <li>Rarità: ${obj.expansion.rarity}</li>
-            <li>Numero di Collezione: ${obj.expansion.collectionNr}/${obj.expansion.totalCard}</li>
-            </ul>
-        </li>
-        <li><strong>Testo di colore:</strong>
-        <ul>
-            <li>${obj.flavorText.quote} ${cite}</li>
-        </ul>
-        </li>
-        <li> <strong> Abilità:</strong> ${abilitiesContent}</li>
-        <li> <strong>Costituzione:</strong> ${obj.costitution}</li>
-        <li> <strong>Forza:</strong> ${obj.strength}</li>
-        <li> <strong>Colore Bordo:</strong> ${obj.borderColor}</li>
-        <li><strong> Illustratore:</strong>
-        <ul>
-            <li><em>Nome:</em> ${obj.illustrator.author.name}</li>
-            <li><em>Link immagine:</em> ${obj.illustrator.source}</li>
-        </ul>
-    </li>
-        <li><strong> Background:</strong>
-        <ul>
-            <li><em>Colore Sfondo:</em> ${obj.background.color}</li>
-            <li><em>Link Sfondo:</em> ${obj.background.source}</li>
-        </ul>
-    </li>
-   </ul>`;
 
-    //? return strin
-   return cardTemplate;
-}  */
+
+//!filter logics
+selectField.addEventListener('change',()=>{
+    let currentValue=selectField.value;
+    if(currentValue !='all'){
+        inputField.classList.remove('d-none');
+    }else{
+        inputField.classList.add('d-none');
+
+    }
+});
 
 
 //!STUB: function  renderCard general
