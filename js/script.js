@@ -7,7 +7,7 @@
 
  ?PERTANTO IL MINIMO RICHIESTO E':
  * - Filtrare prima le proprietà con valori semplici (stringhe o numeri)
-  - Filtrare le proprietà il cui valore è un array di stringhe
+ * - Filtrare le proprietà il cui valore è un array di stringhe
  *BONUS:
   - Far sì che se filtro una proprietà con valore stringa, riesca a mostrare la carta anche se non scrivo il suo testo interamente (es: cerco il nome digitando "creat" e riesco a trovare nei risultati le carte che hanno nel nome "creatura")
   - Filtrare anche altre proprietà i cui valori sono più complessi, se ne avete (oggetti, array di oggetti)
@@ -322,9 +322,27 @@ btn.addEventListener('click',()=>{
                     filteredDeck.push(currentCard);
                 }
                 break;
-            case "name":
-            case "cardType":
-            case "subType":
+            case "flavorText-author":
+                if(currentCard.flavorText.author.includes(inputValue)){
+                    filteredDeck.push(currentCard);
+                }
+                break;
+            case "flavorText-quote":
+                if(currentCard.flavorText.quote.includes(inputValue)){
+                    filteredDeck.push(currentCard);
+                }
+                break;
+            case "background-color":
+                if(currentCard.background.color.includes(inputValue)){
+                    filteredDeck.push(currentCard);
+                }
+                break;
+            case "background-source":
+                if(currentCard.background.source.includes(inputValue)){
+                    filteredDeck.push(currentCard);
+                }
+                break;
+            default:
                 if(currentCard[selectValue].includes(inputValue)){
                     filteredDeck.push(currentCard);
                 }
